@@ -27,6 +27,7 @@
 		13C85C572BDA8CAD0095166E /* DataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85C562BDA8CAD0095166E /* DataSourceMock.swift */; };
 		13C85C592BDAAD6D0095166E /* CategoriaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C85C582BDAAD6D0095166E /* CategoriaCardView.swift */; };
 		13E937022BD82BA000A82CB6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E937012BD82BA000A82CB6 /* NavigationBar.swift */; };
+		13E9F9462BF7EE4500918760 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9F9452BF7EE4500918760 /* LaunchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		13C85C562BDA8CAD0095166E /* DataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceMock.swift; sourceTree = "<group>"; };
 		13C85C582BDAAD6D0095166E /* CategoriaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaCardView.swift; sourceTree = "<group>"; };
 		13E937012BD82BA000A82CB6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		13E9F9452BF7EE4500918760 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				13B9FDB22BD7EFC9009C12D5 /* HomeScreen.swift */,
 				13C36E162BE568DB00EC64DE /* StoreScreen.swift */,
 				13C36E1F2BED5E0000EC64DE /* ProductDetailScreen.swift */,
+				13E9F9452BF7EE4500918760 /* LaunchScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				133899362BDC0FF300B58B52 /* BannerCardCarousel.swift in Sources */,
 				13C85C572BDA8CAD0095166E /* DataSourceMock.swift in Sources */,
 				13C85C522BD9DE480095166E /* CategoriasGridView.swift in Sources */,
+				13E9F9462BF7EE4500918760 /* LaunchScreen.swift in Sources */,
 				13C85C592BDAAD6D0095166E /* CategoriaCardView.swift in Sources */,
 				13C36E192BE94CDD00EC64DE /* ProductCardList.swift in Sources */,
 				13C36E222BF0175F00EC64DE /* ProductQuantityComponent.swift in Sources */,
