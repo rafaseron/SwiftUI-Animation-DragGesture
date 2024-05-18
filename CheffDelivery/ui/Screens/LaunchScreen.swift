@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LaunchScreen: View {
     @State private var isAnimating: Bool = false
+    @State private var imageOffset: CGSize = .zero
+    //@State private var imageOffset: (Double, Double) = (0,0)
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,13 +50,14 @@ struct LaunchScreen: View {
                         .scaledToFit()
                         .shadow(radius: 60)
                         .padding(32)
+                        .offset(x: imageOffset.width, y: imageOffset.height)
                         .gesture(
                             DragGesture()
                             .onChanged({ gestureChanged in
-                                print(gestureChanged.translation)
+                                imageOffset = gestureChanged.translation
                             })
                             .onEnded({ gestureEnded in
-                                print("A interacao terminou")
+                                imageOffset = .zero
                             })
                         
                         )
