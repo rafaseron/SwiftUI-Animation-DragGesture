@@ -49,7 +49,8 @@ struct LaunchScreen: View {
                         .resizable()
                         .scaledToFit()
                         .shadow(radius: 60)
-                        .padding(32)
+                        .padding(isAnimating ? 32 : 92)
+                        .opacity(isAnimating ? 1 : 0)
                         .offset(x: imageOffset.width, y: imageOffset.height)
                         .gesture(
                             DragGesture()
