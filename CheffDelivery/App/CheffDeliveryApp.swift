@@ -11,7 +11,8 @@ import SwiftUI
 struct CheffDeliveryApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            //HomeScreen()
+            LaunchScreen()
         }
     }
 }

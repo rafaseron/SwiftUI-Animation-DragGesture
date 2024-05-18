@@ -43,7 +43,22 @@ struct LaunchScreen: View {
                         .foregroundStyle(.black .opacity(0.7))
                         .offset(y: isAnimating ? 0 : -40)
                     
-                    Spacer()
+                    Image("launchScreenBurguer")
+                        .resizable()
+                        .scaledToFit()
+                        .shadow(radius: 60)
+                        .padding(32)
+                        .gesture(
+                            DragGesture()
+                            .onChanged({ gestureChanged in
+                                print(gestureChanged.translation)
+                            })
+                            .onEnded({ gestureEnded in
+                                print("A interacao terminou")
+                            })
+                        
+                        )
+                    
                 }.onAppear{
                     withAnimation(.easeInOut(duration: 1.5)){
                         isAnimating = true
