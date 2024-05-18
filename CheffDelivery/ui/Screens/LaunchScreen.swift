@@ -54,7 +54,9 @@ struct LaunchScreen: View {
                         .gesture(
                             DragGesture()
                             .onChanged({ gestureChanged in
-                                imageOffset = gestureChanged.translation
+                                withAnimation(.easeInOut(duration: 0.5)){
+                                    imageOffset = gestureChanged.translation
+                                }
                             })
                             .onEnded({ gestureEnded in
                                 withAnimation(.easeInOut(duration: 0.5)){
