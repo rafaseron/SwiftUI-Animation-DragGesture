@@ -124,8 +124,13 @@ struct LaunchScreen: View {
                                         }
                                     })
                                     .onEnded({ gestureEnded in
-                                        withAnimation(.easeInOut(duration: 0.2)){
-                                            buttonOffset = .zero
+                                        
+                                        if buttonOffset.width > (geometry.size.width-60)/2{
+                                            //navegar para outra tela aqui
+                                        } else {
+                                            withAnimation(.easeInOut(duration: 0.2)){
+                                                buttonOffset = .zero
+                                            }
                                         }
                                     })
                             
