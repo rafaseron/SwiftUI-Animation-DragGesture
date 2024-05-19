@@ -12,6 +12,7 @@ struct LaunchScreen: View {
     @State private var imageOffset: CGSize = .zero
     @State private var buttonOffset: CGSize = .zero
     
+    //Validar para que o buttonOffset nao seja atualizado caso o Usuario arraste o Botao para o lado Esquerdo
     func buttonOffsetValidador () -> CGSize{
         if buttonOffset.width > 0{
             return buttonOffset
@@ -115,11 +116,15 @@ struct LaunchScreen: View {
                                 DragGesture()
                                     .onChanged({ gestureChanged in
                                         withAnimation(.easeInOut(duration: 0.2)) {
-                                            buttonOffset = gestureChanged.translation
+                                            //Validar para que o buttonOffset nao seja atualizado caso passe do Tamanho do Slider do Botao
+                                            if gestureChanged.translation.width <= geometry.size.width-40-70{
+                                                buttonOffset = gestureChanged.translation
+                                            }
+                                            
                                         }
                                     })
                                     .onEnded({ gestureEnded in
-                                        withAnimation(.easeInOut(duration: 1.7)){
+                                        withAnimation(.easeInOut(duration: 0.2)){
                                             buttonOffset = .zero
                                         }
                                     })
