@@ -10,6 +10,16 @@ import SwiftUI
 struct LaunchScreen: View {
     @State private var isAnimating: Bool = false
     @State private var imageOffset: CGSize = .zero
+    @State private var buttonOffset: CGSize = .zero
+    
+    func buttonOffsetValidador () -> CGSize{
+        if buttonOffset.width > 0{
+            return buttonOffset
+        }else{
+            return .zero
+        }
+    }
+    
     let buttonHeight: CGFloat = 80
     
     var body: some View {
@@ -100,6 +110,21 @@ struct LaunchScreen: View {
                             
                             Spacer()
                         }.padding()
+                            .offset(x: buttonOffsetValidador().width)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged({ gestureChanged in
+                                        withAnimation(.easeInOut(duration: 0.2)) {
+                                            buttonOffset = gestureChanged.translation
+                                        }
+                                    })
+                                    .onEnded({ gestureEnded in
+                                        withAnimation(.easeInOut(duration: 1.7)){
+                                            buttonOffset = .zero
+                                        }
+                                    })
+                            
+                            )
                         
                     }
                     
