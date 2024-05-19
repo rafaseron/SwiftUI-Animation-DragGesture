@@ -10,7 +10,7 @@ import SwiftUI
 struct LaunchScreen: View {
     @State private var isAnimating: Bool = false
     @State private var imageOffset: CGSize = .zero
-    //@State private var imageOffset: (Double, Double) = (0,0)
+    let buttonHeight: CGFloat = 80
     
     var body: some View {
         GeometryReader { geometry in
@@ -66,6 +66,43 @@ struct LaunchScreen: View {
                             })
                         
                         )
+                    
+                    ZStack(alignment: .center){
+                        Capsule()
+                            .fill(Color(.colorRed).opacity(0.2))
+                            .frame(width: geometry.size.width-60 ,height: buttonHeight-20)
+                        
+                        Capsule()
+                            .fill(Color(.colorRed).opacity(0.2))
+                            .frame(width: geometry.size.width-40 ,height: buttonHeight)
+                        
+                        Text("Descubra mais")
+                            .bold()
+                            .font(.title2)
+                            .foregroundStyle(.colorRedDark)
+                            .offset(x: 20)
+                        
+                        HStack{
+                            ZStack{
+                                Circle()
+                                    .fill(Color(.colorRed))
+                                    .frame(height: buttonHeight)
+                                
+                                Circle()
+                                    .fill(Color(.colorRedDark))
+                                    .frame(height: buttonHeight-20)
+                                
+                                Image(systemName: "chevron.right.2")
+                                    .font(.system(size: 24))
+                                    .bold()
+                                    .foregroundStyle(.white)
+                            }
+                            
+                            Spacer()
+                        }.padding()
+                        
+                    }
+                    
                     
                 }.onAppear{
                     withAnimation(.easeInOut(duration: 1.5)){
