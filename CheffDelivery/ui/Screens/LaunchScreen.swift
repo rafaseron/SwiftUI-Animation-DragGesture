@@ -94,6 +94,15 @@ struct LaunchScreen: View {
                             .offset(x: 20)
                         
                         HStack{
+                            Capsule()
+                                .fill(Color(.colorRed))
+                                .frame(width: buttonOffset.width+buttonHeight, height: buttonHeight)
+                            
+                            Spacer()
+                            
+                        }.padding()
+                        
+                        HStack{
                             ZStack{
                                 Circle()
                                     .fill(Color(.colorRed))
