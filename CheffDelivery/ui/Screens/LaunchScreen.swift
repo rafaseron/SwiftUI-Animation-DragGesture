@@ -11,6 +11,7 @@ struct LaunchScreen: View {
     @State private var isAnimating: Bool = false
     @State private var imageOffset: CGSize = .zero
     @State private var buttonOffset: CGSize = .zero
+    @State private var navigateToHome: Bool = false
     
     //Validar para que o buttonOffset nao seja atualizado caso o Usuario arraste o Botao para o lado Esquerdo
     func buttonOffsetValidador () -> CGSize{
@@ -135,7 +136,7 @@ struct LaunchScreen: View {
                                     .onEnded({ gestureEnded in
                                         
                                         if buttonOffset.width > (geometry.size.width-60)/2{
-                                            //navegar para outra tela aqui
+                                            navigateToHome = true
                                         } else {
                                             withAnimation(.easeInOut(duration: 0.2)){
                                                 buttonOffset = .zero
@@ -145,7 +146,8 @@ struct LaunchScreen: View {
                             
                             )
                         
-                    }
+                    }.offset(y: isAnimating ? 0 : 100)
+                        .opacity(isAnimating ? 1 : 0.5)
                     
                     
                 }.onAppear{
@@ -154,7 +156,9 @@ struct LaunchScreen: View {
                     }
             }
             }
-        }
+        }.fullScreenCover(isPresented: $navigateToHome, content: {
+            HomeScreen()
+        })
     }
 }
 
