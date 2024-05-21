@@ -29,15 +29,32 @@ struct BannerItem: View {
     }
 
 struct CarouselBanners: View {
+    @State private var currentImage: Int = 1
+    
     let bannerList: [ImageItem]
     
         var body: some View {
-            TabView{
+            TabView(selection: $currentImage) {
                 ForEach(imageList){ image in
                     BannerItem(image: image)
+                        .tag(image.id)
                 }
             }.frame(height: 180)
                 .tabViewStyle(.page(indexDisplayMode: .always))
+                .onAppear{
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { Timer in
+                        
+                        if currentImage > imageList.count {
+                            withAnimation(.easeInOut(duration: 0.5)){
+                                currentImage = 1
+                            }
+                        } else {
+                            withAnimation(.easeInOut(duration: 0.5)){
+                                currentImage += 1
+                            }
+                        }
+                    }
+                }
     }
 }
 
